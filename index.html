@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- 
+        Diketahui 10 data ip dibawah ini:
+        a.Buat kode JS untuk mencari jumlah
+        b.rata 
+        c.maksimum, dan
+        d.minimum IP
+    -->
+
+    <form action="">
+        <label for="">Banyak IP</label>
+        <input type="text" name="" id="banyak">
+        <button onclick="getBanyak();">Submit</button>
+    </form>
+
+    <script>
+        let banyak;
+
+        function getBanyak() {
+            banyak = document.getElementById("banyak").value;
+            document.write("<head>");
+            document.write(`<link rel="stylesheet" href="style.css">`);
+            document.write("</head>");
+            document.write("<body>");
+            document.write("<form>");
+            for (let i = 1; i <= banyak; i++) {
+                document.write(`<input type="text" id="${i}">`);
+            }
+            document.write(`<button onclick="fProses();">Submit</button>`);
+            document.write("</form>");
+            document.write("</body>");
+        }
+
+        function fProses() {
+            let newWin = window.open("about:blank", "hello", "width=500,height=500");
+            newWin.document.write("<head>");
+            newWin.document.write(`<link rel="stylesheet" href="style.css">`);
+            newWin.document.write("</head>");
+            newWin.document.write("<body>");
+            newWin.document.write("<form>");
+            newWin.document.write(`<table><thead><th colspan="3">Hasil</th></thead><tbody><tr><td>Data IP</td><td>:</td><td>`);
+            // menampilkan data IP yang dimasukkan
+            for (let i = 1; i <= banyak; i++) {
+                newWin.document.write(`${document.getElementById(i).value} `);
+            }
+            newWin.document.write(`</td></tr>`);
+
+            // menampilkan jumlah data
+            newWin.document.write(`<tr><td>Jumlah</td><td>:</td><td>`);
+            jumlah = 0;
+            for (let i = 1; i <= banyak; i++) {
+                jumlah = jumlah + parseFloat(document.getElementById(i).value);
+            }
+            newWin.document.write(`${jumlah}</td></tr>`);
+
+            // menampilkan rata-rata
+            newWin.document.write(`<tr><td>Rata-rata</td><td>:</td><td>`);
+            let rata2;
+            rata2 = jumlah / banyak;
+            newWin.document.write(`${rata2}</td></tr>`);
+
+            // menampilkan nilai maksimum
+            newWin.document.write(`<tr><td>Nilai Maksimum</td><td>:</td><td>`);
+            let max = parseFloat(document.getElementById(1).value);
+            for (let i = 1; i <= banyak; i++) {
+                if (document.getElementById(i).value > max) {
+                    max = document.getElementById(i).value;
+                }
+            }
+            newWin.document.write(`${max}</td></tr>`);
+
+            // menampilkan nilai maksimum
+            newWin.document.write(`<tr><td>Nilai Maksimum</td><td>:</td><td>`);
+            let min = parseFloat(document.getElementById(1).value);
+            for (let i = 1; i <= banyak; i++) {
+                if (document.getElementById(i).value < min) {
+                    max = document.getElementById(i).value;
+                }
+            }
+            newWin.document.write(`${min}</td></tr>`);
+
+            newWin.document.write(`</tbody></table>`);
+            newWin.document.write("</form>");
+            newWin.document.write("</body>");
+
+
+        }
+    </script>
+</body>
+
+</html>
