@@ -91,6 +91,45 @@
             }
             newWin.document.write(`${min}</td></tr>`);
 
+            // mengurutkan secara menaik
+            let ip = [];
+            newWin.document.write(`<tr><td>Nilai Secara Menaik</td><td>:</td><td>`);
+            for (let i = 1; i <= banyak; i++) {
+                ip[i] = document.getElementById(i).value;
+            }
+
+            for (let i = 1; i <= banyak - 1; i++) {
+                for (let j = 1 + i; j <= banyak; j++) {
+                    if (ip[i] > ip[j]) {
+                        temp = ip[i];
+                        ip[i] = ip[j];
+                        ip[j] = temp;
+                    }
+                }
+            }
+
+            for (let i = 1; i < ip.length; i++) {
+                newWin.document.write(`${ip[i]} `);
+            }
+            newWin.document.write(`</td></tr>`);
+
+            // mengurutkan secara menurun
+            newWin.document.write(`<tr><td>Nilai Secara Menurun</td><td>:</td><td>`);
+            for (let i = 0; i <= banyak - 1; i++) {
+                for (let j = 1 + i; j <= banyak; j++) {
+                    if (ip[i] < ip[j]) {
+                        temp = ip[i];
+                        ip[i] = ip[j];
+                        ip[j] = temp;
+                    }
+                }
+            }
+
+            for (let i = 1; i < ip.length; i++) {
+                newWin.document.write(`${ip[i]} `);
+            }
+            newWin.document.write(`</td></tr>`);
+
             newWin.document.write(`</tbody></table>`);
             newWin.document.write("</form>");
             newWin.document.write("</body>");
